@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Timer</title>
+</head>
+<body>
+  <h2>Timer</h2>
+  <button id="startBtn">Start</button>
+  <button id="stopBtn">Stop</button>
+  <p id="timer">0 seconds</p>
+
+  <script>
+    let timerInterval;
+    let seconds = 0;
+    const timerDisplay = document.getElementById('timer');
+    const startBtn = document.getElementById('startBtn');
+    const stopBtn = document.getElementById('stopBtn');
+
+    function startTimer() {
+      timerInterval = setInterval(updateTimer, 1000);
+    }
+
+    function stopTimer() {
+      clearInterval(timerInterval);
+    }
+
+    function updateTimer() {
+      seconds++;
+      timerDisplay.textContent = `${seconds} seconds`;
+    }
+
+    startBtn.addEventListener('click', startTimer);
+    stopBtn.addEventListener('click', stopTimer);
+  </script>
+</body>
+</html>
